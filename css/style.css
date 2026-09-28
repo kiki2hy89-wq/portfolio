@@ -1,0 +1,149 @@
+/* 디자인 토큰 — 색·여백은 여기서만 바꾸세요 */
+:root {
+  --ink: #1d1d1f;
+  --muted: #6e6e73;
+  --faint: #d2d2d7;
+  --blue: #0071e3;
+  --link: #0066cc;
+  --surface: #f5f5f7;
+  --ph: #e8e8ed;
+  --line: rgba(0, 0, 0, .09);
+  --radius: 18px;
+  --max: 1280px;
+  --pad: 28px;
+  --header-h: 56px;
+  --font: Pretendard, -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+  --mono: ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fff; color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--blue); }
+::selection { background: #d3e6fb; }
+img { display: block; max-width: 100%; }
+
+/* 스크롤 연출: 지원 브라우저는 스크롤 연동, 미지원은 로드 시 1회 페이드업 */
+@keyframes fadeUp { from { opacity: 0; transform: translate3d(0, 34px, 0); } to { opacity: 1; transform: none; } }
+[data-reveal] { animation: fadeUp .8s cubic-bezier(.22, .61, .36, 1) both; }
+@supports (animation-timeline: view()) {
+  [data-reveal] { animation-timeline: view(); animation-range: entry 0% cover 26%; }
+}
+@media (prefers-reduced-motion: reduce) { [data-reveal] { animation: none; } }
+
+/* 헤더 */
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, .72); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0, 0, 0, .07); }
+.site-header__inner { max-width: var(--max); margin: 0 auto; padding: 8px var(--pad); min-height: var(--header-h); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; }
+.logo { font-size: 16px; font-weight: 600; letter-spacing: -.3px; color: var(--ink); white-space: nowrap; }
+.logo span { color: var(--muted); font-weight: 400; }
+.cat-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill { display: inline-flex; align-items: center; height: 36px; padding: 0 15px; border-radius: 980px; border: 1px solid var(--link); color: var(--link); background: transparent; font: 500 13px/1 var(--font); letter-spacing: .2px; cursor: pointer; white-space: nowrap; flex: none; }
+.pill:hover { color: var(--blue); border-color: var(--blue); }
+.pill.is-active { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+/* 버튼 */
+.btn { display: inline-flex; align-items: center; height: 44px; padding: 0 21px; border-radius: 980px; font: 400 17px/1 var(--font); letter-spacing: -.374px; border: 1px solid var(--link); color: var(--link); background: transparent; cursor: pointer; white-space: nowrap; flex: none; }
+.btn--primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+.btn--primary:hover { color: #fff; opacity: .9; }
+
+/* 이미지 / 플레이스홀더 */
+.media { position: relative; overflow: hidden; border-radius: var(--radius); background: var(--ph); }
+.media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.media__label { position: absolute; left: 14px; bottom: 12px; font: 400 11px var(--mono); color: var(--muted); }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.eyebrow { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 1.4px; color: var(--link); }
+.muted { color: var(--muted); }
+
+/* ── 메인 ───────────────────────── */
+.shell { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); display: flex; flex-wrap: wrap; gap: 0 64px; align-items: flex-start; }
+.profile { flex: 1 1 300px; max-width: 340px; position: sticky; top: var(--header-h); max-height: calc(100vh - var(--header-h)); overflow-y: auto; overscroll-behavior: contain; padding: 40px 0; display: flex; flex-direction: column; gap: 18px; }
+.profile__photo { width: 100%; max-width: 260px; aspect-ratio: 1 / 1; flex: none; }
+.profile__name { font-size: 34px; font-weight: 600; letter-spacing: -.8px; line-height: 1.15; }
+.profile__role { font-size: 17px; color: var(--muted); margin-top: 6px; letter-spacing: -.374px; }
+.profile__info { display: flex; flex-direction: column; gap: 10px; padding-top: 18px; border-top: 1px solid var(--line); }
+.profile__row { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; }
+.profile__row a { color: var(--ink); }
+.profile__cta { display: flex; gap: 10px; flex-wrap: wrap; }
+@media (max-width: 820px) {
+  .profile { position: static; max-height: none; overflow: visible; max-width: none; padding-bottom: 8px; }
+}
+
+.content { flex: 999 1 420px; min-width: 0; padding-top: 56px; }
+.hero { padding: 36px 0 84px; }
+.hero__title { margin: 42px 0 0; font-size: clamp(36px, 5vw, 64px); font-weight: 600; line-height: 1.08; letter-spacing: -1.4px; color: #141515; }
+.hero__word { display: block; color: #0271e4; font-size: clamp(56px, 9vw, 117px); font-weight: 900; line-height: 1; letter-spacing: -2px; margin-top: 4px; }
+.hero__desc { margin: 26px 0 0; max-width: 680px; font-size: 19px; line-height: 1.6; color: var(--muted); letter-spacing: -.374px; text-wrap: pretty; }
+.stats { margin-top: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--line); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stats > div { background: #fff; padding: 20px 4px; }
+.stats strong { display: block; font-size: 30px; font-weight: 600; letter-spacing: -.6px; }
+.stats span { font-size: 13px; color: var(--muted); }
+
+.section { padding: 0 0 92px; }
+.section__head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
+.section__title { margin: 0; font-size: 40px; font-weight: 600; letter-spacing: -.8px; }
+
+.career { border-top: 1px solid var(--ink); }
+.career__row { display: grid; grid-template-columns: 120px minmax(0, 1fr) 150px; gap: 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.career__year { font: 13px var(--mono); color: var(--muted); letter-spacing: .2px; }
+.career__title { font-size: 19px; font-weight: 500; letter-spacing: -.374px; }
+.career__desc { font-size: 15px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+.career__type { font-size: 13px; color: var(--muted); text-align: right; }
+@media (max-width: 640px) {
+  .career__row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .career__type { text-align: left; }
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; height: 36px; padding: 0 15px; border-radius: 980px; background: var(--surface); font-size: 14px; letter-spacing: -.224px; }
+.chip--sm { height: 30px; padding: 0 12px; font-size: 13px; }
+
+.works { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin-top: 14px; }
+.work-card { display: block; color: inherit; }
+.work-card:hover { color: inherit; opacity: .86; }
+.work-card .media { aspect-ratio: 4 / 3; }
+.work-card__meta { display: flex; justify-content: space-between; gap: 12px; margin-top: 12px; }
+.work-card__title { font-size: 17px; font-weight: 500; letter-spacing: -.374px; }
+.work-card__type { font-size: 14px; color: var(--muted); margin-top: 2px; }
+
+.contact { margin: 0 0 92px; padding: 56px 32px; border-radius: var(--radius); background: var(--surface); display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; }
+.contact h2 { margin: 0; font-size: 34px; font-weight: 600; letter-spacing: -.8px; text-wrap: pretty; }
+.contact p { margin: 10px 0 0; font-size: 17px; color: var(--muted); letter-spacing: -.374px; }
+
+.site-footer { padding: 26px 0 40px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 12px; color: var(--muted); }
+
+/* ── 서브페이지 ───────────────────── */
+.work-head { padding: 40px 0 0; }
+.work-head__bar { margin-top: 14px; padding-bottom: 22px; border-bottom: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: baseline; font-size: 14px; color: var(--muted); }
+.work-head__bar strong { color: var(--ink); font-weight: 500; }
+.work-head__bar .spacer { flex: 1; }
+.work-list { padding-top: 48px; }
+
+/* 레이아웃 A: 한 장짜리 (DETAIL PAGE, TYPE DESIGN) */
+.project-single { padding-top: 56px; }
+.project-single__bar { display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: baseline; padding-bottom: 14px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.project-single__no { font-family: var(--mono); color: var(--faint); letter-spacing: .2px; }
+.project-single__title { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.4px; color: var(--ink); }
+.project-single__bar .spacer { flex: 1; }
+.project-single__desc { margin: 14px 0 0; max-width: 680px; font-size: 15px; line-height: 1.6; color: var(--muted); letter-spacing: -.374px; text-wrap: pretty; }
+.project-single .media { margin: 22px auto 0; aspect-ratio: 1200 / 848; max-width: 1200px; }
+
+/* 레이아웃 B: 대표 + 상세 컷 (PACKAGE, BRANDING) */
+.project { display: flex; flex-wrap: wrap; gap: 20px 48px; align-items: flex-start; padding-top: 64px; }
+.project.is-reverse { flex-direction: row-reverse; }
+.project__main { flex: 999 1 420px; min-width: 0; aspect-ratio: 16 / 10; }
+.project__info { flex: 1 1 260px; max-width: 340px; display: flex; flex-direction: column; gap: 14px; }
+.project__num { display: flex; align-items: baseline; gap: 10px; }
+.project__num strong { font-size: 44px; font-weight: 600; letter-spacing: -1.2px; color: var(--faint); line-height: 1; }
+.project__num span { font: 13px var(--mono); color: var(--muted); }
+.project__title { margin: 10px 0 0; font-size: 28px; font-weight: 600; letter-spacing: -.6px; line-height: 1.2; text-wrap: pretty; }
+.project__desc { margin: 0; font-size: 16px; line-height: 1.6; color: var(--muted); letter-spacing: -.374px; text-wrap: pretty; }
+.project__meta { margin: 0; display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 8px 14px; font-size: 14px; }
+.project__meta dt { color: var(--muted); }
+.project__meta dd { margin: 0; }
+.project__shots { flex: 1 1 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; padding-top: 6px; }
+.project__shots .media { aspect-ratio: 4 / 3; border-radius: 14px; }
+
+.divider { flex: 1 1 100%; margin-top: 56px; border-top: 1px solid var(--line); }
+.empty { padding: 80px 0; text-align: center; color: var(--muted); }

@@ -1,0 +1,30 @@
+{
+  "name": "이혜영",
+  "role": "풀스택 비주얼 디자이너",
+  "photo": null,
+  "phone": "010-7900-2615",
+  "kakao": "kiki2hy",
+  "fields": "패키지 · 웹 · 브랜딩",
+  "stats": [
+    { "value": "15년+", "label": "경력" },
+    { "value": "40+", "label": "진행 프로젝트" },
+    { "value": "3", "label": "전문 분야" }
+  ],
+  "career": [
+    { "year": "2024 — 현재", "title": "프리랜스 비주얼 디자인", "desc": "브랜드 아이덴티티부터 패키지 양산까지 단독 진행", "type": "BRANDING" },
+    { "year": "2023 — 2024", "title": "패키지 디자인 리드", "desc": "시즌 라인업 구조 설계 및 인쇄 감리", "type": "PACKAGE" },
+    { "year": "2022 — 2023", "title": "브랜드 웹사이트 리뉴얼", "desc": "정보구조 재정의, 디자인 시스템 구축", "type": "WEB" },
+    { "year": "2022", "title": "리브랜딩 프로젝트", "desc": "로고·컬러·타입 시스템 전면 개편", "type": "BRANDING" },
+    { "year": "2021 — 2022", "title": "이커머스 상세페이지 시스템", "desc": "템플릿화로 제작 리드타임 단축", "type": "WEB" },
+    { "year": "2021", "title": "식품 패키지 시리즈", "desc": "용기 구조 검토 포함 8종 전개", "type": "PACKAGE" },
+    { "year": "2020 — 2021", "title": "인하우스 그래픽 디자이너", "desc": "온·오프라인 홍보물 전반 운영", "type": "GRAPHIC" },
+    { "year": "2019 — 2020", "title": "디자인 스튜디오 어시스턴트", "desc": "편집·인쇄물 실무 및 촬영 디렉션 보조", "type": "PRINT" }
+  ],
+  "skills": ["Illustrator", "Photoshop", "InDesign", "Figma", "AI 툴", "CAPCUT", "디자인 시스템", "HTML"],
+  "featured": [
+    { "title": "패키지 프로젝트 A", "year": "2025", "type": "Package · 3종 전개", "category": "package", "image": null },
+    { "title": "브랜드 웹사이트 B", "year": "2025", "type": "Web · 반응형", "category": "detail", "image": null },
+    { "title": "리브랜딩 C", "year": "2024", "type": "Branding · 아이덴티티", "category": "branding", "image": null },
+    { "title": "패키지 프로젝트 D", "year": "2024", "type": "Package · 인쇄 감리", "category": "package", "image": null }
+  ]
+}
